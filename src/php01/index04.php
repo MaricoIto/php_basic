@@ -1,4 +1,6 @@
 <?php
-$a = 5;
+$a = 7;
 
-if()
+$result = ($a == 7) ? "TRUE" : "FALSE";
+
+echo $result;
