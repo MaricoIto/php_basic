@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/sanitize.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/sanitize.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <header class="header">
@@ -23,7 +23,7 @@
             </div>
             <form action="result.php" class="search-form" method="get">
                 <div class="search-form__item">
-                    <select name="search-form__itm-select" name="city">
+                    <select class="search-form__item-select" name="city">
                         <option value="シドニー">シドニー</option>
                         <option value="上海">上海</option>
                         <option value="モスクワ">モスクワ</option>
