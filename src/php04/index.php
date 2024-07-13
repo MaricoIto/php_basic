@@ -1,3 +1,17 @@
+<?php
+
+require_once('config/status_codes.php');
+
+$random_indexes = array_rand($status_codes, 4);
+
+foreach ($random_indexes as $index) {
+    $options[] = $status_codes[$index];
+}
+
+$question = $options[mt_rand(0, 3)];
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -19,19 +33,22 @@
             </a>
         </div>
     </header>
+
     <main>
         <div class="quiz__content">
             <div class="question">
                 <p class="question__text">Q. 以下の内容に当てはまるステータスコードを選んでください</p>
-                <p class="question__text"></p>
+                <p class="question__text"><?php echo $question['description'] ?></p>
             </div>
             <form action="result.php" method="post" class="quiz-form">
-                <input type="hidden" name="answer_code" value="">
+                <input type="hidden" name="answer_code" value="<?php echo $question['code'] ?>">
                 <div class="quiz-form__item">
-                    <div class="quiz-form__group">
-                        <input type="radio" name="option" value="" class="quiz-form__radio">
-                        <label for="" class="quiz-form__label"></label>
-                    </div>
+                    <?php foreach ($options as $option) : ?>
+                        <div class="quiz-form__group">
+                            <input type="radio" name="option" value="<?php echo $option['code'] ?>" class="quiz-form__radio" id="<?php echo $option['code'] ?>">
+                            <label for="<?php echo $option['code'] ?>" class="quiz-form__label"><?php echo $option['code'] ?></label>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="quiz-form_button">
                     <button class="quiz-form__button-submit" type="submit">
